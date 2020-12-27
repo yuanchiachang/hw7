@@ -1,0 +1,26 @@
+type Query {
+  messages: [Message!]
+}
+
+type Message{
+  name: String!
+  body: String!
+}
+
+type Mutation {
+  createMessage(data: CreateMessageInput!): Message!
+  clearMessages: String!
+}
+
+input CreateMessageInput {
+  name: String!
+  body: String!
+}
+
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
