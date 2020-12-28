@@ -1,14 +1,17 @@
 import { GraphQLServer, PubSub } from 'graphql-yoga'
 import Query from './resolvers/Query'
 import Mutation from './resolvers/Mutation'
+import Subscription from './resolvers/Subscription'
 require('dotenv-defaults').config()
+
 const pubsub = new PubSub()
 
 const server = new GraphQLServer({
   typeDefs: './server/schema.graphql',
   resolvers: {
     Query,
-    Mutation
+    Mutation,
+    Subscription
   },
   context: {
     db,

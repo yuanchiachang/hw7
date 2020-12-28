@@ -1,9 +1,9 @@
 import Message from '../models/message'
-let data = "";
+let data = [];
 
 const Query = { 
-  messages: () => {
-    Message.find()
+  messages: async () => {
+    await Message.find()
       .limit(100)
       .sort({ _id: 1 })
       .exec((err, res) => {

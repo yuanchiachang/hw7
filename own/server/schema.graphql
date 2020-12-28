@@ -12,6 +12,10 @@ type Mutation {
   clearMessages: String!
 }
 
+type Subscription{
+  createMessage: Message!
+}
+
 input CreateMessageInput {
   name: String!
   body: String!
@@ -20,7 +24,6 @@ input CreateMessageInput {
 
 enum MutationType {
   CREATED
-  UPDATED
   DELETED
 }
 

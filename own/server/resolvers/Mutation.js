@@ -3,6 +3,12 @@ import Message from '../models/message'
 
 const Mutation = {
   createMessage: async (parent, args, { db, pubsub }, info) => {
+    pubsub.publish("CREATE",{
+      createMessage: {
+        name: args.data.name, 
+        body: args.data.body
+      }
+    })
     const message = new Message({
       name: args.data.name, body: args.data.body});
 
